@@ -33,7 +33,7 @@ const SignUp = () => {
                     <label htmlFor="username">Username:</label><br/>
                     <input type="text" id="username" name="username" required/><br/>
                     <label htmlFor="password">password:</label><br/>
-                    <input type="password" id="password" name="password" required/>
+                    <input type="text" id="password" name="password" required/>
                     <button type="submit">Submit</button>
                 </form>
             </div>
