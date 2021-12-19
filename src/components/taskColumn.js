@@ -14,19 +14,27 @@ const TasksColumn = () => {
         }
     }
     return ( 
-        <section>
-            <p>tasks</p>
+        <section className="p-3">
+            <p className="fw-bold">Tasks</p>
             {
                 isPending ? "loading" :
-                tasks.map(({task_id,name}) =>
-                    <div key={task_id}>
-                        <div>
-                            <span>{name} </span>
-                            <span data_id={task_id} onClick={handleDelete}>Delete</span>
-                        </div>
-                    </div>
-                    
-                )
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                    tasks.map(({task_id,name}) =>
+                        <tr key={task_id}>
+                            <td>{name} </td>
+                            <td ><button data_id={task_id} onClick={handleDelete} className="btn btn-danger">Delete</button></td>
+                        </tr>
+                        
+                    )}
+                    </tbody>
+                </table>               
             
             }
      

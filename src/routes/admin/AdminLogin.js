@@ -3,7 +3,6 @@ import post from "../../scripts/shared/post"
 import { Link } from "react-router-dom";
 
 const AdminLogin = () => {
-    const [error,setError] = useState(null)
     const handleSubmit = async(e) => {
         e.preventDefault()
         const formData = new FormData(e.target)
@@ -17,27 +16,25 @@ const AdminLogin = () => {
             }
             
         } catch (err){
-            setError(err.message)
+            alert(err.message)
         }
     }
     return ( 
-        <section>
-            <div>
-                <div>Admin</div>
-                <h1>Hotel task app</h1>
-            </div>
-            <div>
-                <div><p>{error ? error : "" }</p></div>
+        <section className="text-center">
+                
+            <div className="bg-primary text-white p-3 text-large mb-2">Hotel Task Website</div>
+            <div>Admin area</div>
+            <div  className="p-4">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="username">Username:</label><br/>
-                    <input type="text" id="username" name="username" required/><br/>
+                    <input className="form-control" type="text" id="username" name="username" required/><br/>
                     <label htmlFor="password">password:</label><br/>
-                    <input type="text" id="password" name="password" required/>
-                    <button type="submit">Submit</button>
+                    <input className="form-control" type="text" id="password" name="password" required/>
+                    <button className="btn btn-primary mt-3" type="submit">Login</button>
                 </form>
             </div>
-            <div><Link to="../admin/sign-up">Sign Up</Link></div>
-            <div><Link to="../admin/forgot-password">Forgot Password</Link></div>
+            <div><Link className="btn btn-primary mt-3" to="../admin/sign-up">Sign Up</Link></div>
+            <div><Link className="btn btn-primary mt-3" to="../admin/login">Forgot Password</Link></div>
         </section>
      )
 }

@@ -14,13 +14,13 @@ const RolesForm = () => {
     }
     return ( 
         <section>
-            <div>
+            <div className="p-4">
                 
                 <form onSubmit={handleSubmit} title="form">
                     <label htmlFor="name">Role:</label><br/>
-                    <input title="name" type="text" id="name" name="name" required  placeholder="add role"/><br/>
+                    <input className="form-control" title="name" type="text" id="name" name="name" required  placeholder="add role"/><br/>
                     
-                    <button type="submit">Submit</button>
+                    <button className="btn btn-primary mt-3"type="submit">Submit</button>
                 </form>
             </div>
         </section>

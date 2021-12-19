@@ -5,8 +5,9 @@ import AssignedTasksColumn from '../../components/assignedTaskColumn';
 const Dashboard = () => {
     
     return ( 
-        <section>
-            home page
+        <section className="text-center">
+            <div className="bg-primary text-white p-3 text-large mb-2">Hotel Task Website</div>
+
             <TaskForm/>
             <TaskColumn/>
             <AssignedTasksColumn/>

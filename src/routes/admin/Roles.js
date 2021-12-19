@@ -21,23 +21,22 @@ const Roles = () => {
         }
     }
     return ( 
-    <section>
-        <div>
-            <h1>Hotel task app</h1>
-            </div>
-            <div>
+    <section className="text-center">
+        <div className="bg-primary text-white p-3 text-large mb-2">Hotel Task Website</div>
+        <div>Admin area</div>
+            <div className="p-4">
                 {
                     isPending ? "loading" : 
                     <form onSubmit={handleSubmit} data_id={role.role_id}>
                         <label htmlFor="name">Task:</label><br/>
-                        <input type="text" id="name" name="name"  defaultValue={role.name}/><br/>
+                        <input className="form-control" type="text" id="name" name="name"  defaultValue={role.name}/><br/>
                         
-                        <button type="submit">Submit</button>
+                        <button className="btn btn-primary mt-3"type="submit">Change</button>
                     </form>
                 }
                 
         </div>
-        <div>
+        <div className="bg-light">
             <PermissionForm/>
         </div>
         <div>

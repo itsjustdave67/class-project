@@ -4,7 +4,6 @@ import post from "../scripts/shared/post"
 import UserOptions from "./userOptions"
 
 const AssignedTasksForm = () => {
-    const [error,setError] = useState(null)
     
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -17,22 +16,20 @@ const AssignedTasksForm = () => {
             await post("/assigned-tasks",JSON.stringify(object))
             window.location.reload()
         } catch (err){
-            setError(err.message)
+            alert(err.message)
         }
     }
     return ( 
         <section>
-            
-            <div>
-                <div><p>{error ? error : "" }</p></div>
+            <div className="p-4">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Assign Task:</label><br/>
-                    <input type="text" id="name" name="name" required/><br/>
+                    <input className="form-control" type="text" id="name" name="name" required/><br/>
 
                     <label for="to">Choose who to assign:</label>
                     <UserOptions/>
                     
-                    <button type="submit">Submit</button>
+                    <button className="btn btn-primary mt-3" type="submit">Assign Task</button>
                 </form>
             </div>
      

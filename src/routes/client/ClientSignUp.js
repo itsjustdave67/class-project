@@ -20,25 +20,24 @@ const SignUp = () => {
         }
     }
     return ( 
-        <section>
-            <div>
-                <h1>Hotel task app</h1>
-            </div>
-            <div>
+        <section className="text-center">
+            <div className="bg-primary text-white p-3 text-large mb-2">Hotel Task Website</div>
+
+            <div className="p-4">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Full name:</label><br/>
-                    <input type="text" id="name" name="name" required/><br/>
+                    <input className="form-control" type="text" id="name" name="name" required/><br/>
                     <label htmlFor="email">Email:</label><br/>
-                    <input type="email" id="email" name="email" required/><br/>
+                    <input className="form-control" type="email" id="email" name="email" required/><br/>
                     <label htmlFor="username">Username:</label><br/>
-                    <input type="text" id="username" name="username" required/><br/>
-                    <label htmlFor="password">password:</label><br/>
-                    <input type="text" id="password" name="password" required/>
-                    <button type="submit">Submit</button>
+                    <input className="form-control" type="text" id="username" name="username" required/><br/>
+                    <label htmlFor="password">Password:</label><br/>
+                    <input className="form-control" type="text" id="password" name="password" required/>
+                    <button className="btn btn-primary mt-3"type="submit">Sign up</button>
                 </form>
             </div>
-            <div><Link to="../client/login">Login</Link></div>
-            <div><Link to="../client/forgot-password">Forgot Password</Link></div>
+            <div><Link to="../client/login" className="btn btn-primary mt-3">Login</Link></div>
+            <div><Link to="../client/sign-up" className="btn btn-primary mt-3">Forgot Password</Link></div>
      
         </section>
      );

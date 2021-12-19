@@ -10,18 +10,40 @@ import UserRoles from '../../components/userRoles';
 const Dashboard = () => {
     
     return ( 
-        <section>
-            <div>
-                <h1>Hotel task app</h1>
+        <section className="text-center">
+            <div className="bg-primary text-white p-3 text-large mb-2">Hotel Task Website</div>
+            <div>Admin area</div>
+            <div className="my-5 mx-4 shadow rounded">
+                <h1 className="pt-4">Personal tasks Management</h1>
+                <TaskForm/>
+                <TaskColumn/>  
             </div>
-            {/* <TaskForm/>
-            <TaskColumn/>
-            <AssignedTasksForm/>
-            <AssignedTasksFromColumn/>
-            <AssignedTasksToColumn/> */}
-            <UserRoles />
-            <RolesForm/>
-            <RolesColumn/>
+            
+            <div className="my-5 mx-4 shadow rounded">
+                <h1 className="pt-4">Assigned tasks Management</h1>
+               <AssignedTasksForm/>
+               <div className="my-5 mx-3 shadow rounded">
+                <AssignedTasksFromColumn/>
+                </div>
+               <div className="my-5 mx-3 shadow rounded">
+
+                <AssignedTasksToColumn/> 
+                </div>
+
+            </div>
+            
+            <div className="my-5 mx-4 shadow rounded">
+                <h1 className="pt-4">User and Role Management</h1>
+               <UserRoles />
+
+                <RolesForm/>
+                <div className="my-5 mx-3 shadow rounded">
+                    <p className="fw-bold pt-4">Roles</p>
+                <RolesColumn/> 
+            </div>]
+
+            </div>
+            
         </section>
      );
 }

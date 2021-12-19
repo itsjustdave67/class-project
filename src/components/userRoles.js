@@ -31,7 +31,7 @@ const GetRole = ({id}) => {
         <span>
             { isPending? "loading" :
                 <span>
-                    role:{role ? role.name :"none"}
+                    {role ? role.name :"none"}
                 </span>
             }
         </span>
@@ -55,36 +55,55 @@ const GetRoleForm = ({user}) => {
     }
 
     return ( 
-        <form onSubmit={handleSubmit} >
-            <label htmlFor="user_id">user id:</label><br/>
-            <input type="text" id="user" name="user_id" required defaultValue={user.user_id} disabled/><br/>
+        <div className="py-3">
+            
+            <form onSubmit={handleSubmit} >
+                <div className="row">
+                    <div className="col">
+                    <label htmlFor="user_id">user id:</label><br/>
+                    <input className="form-control" type="text" id="user" name="user_id" required defaultValue={user.user_id} disabled/><br/>
+                    </div>
+                    <div className="col">
+                <label htmlFor="name">Full name:</label><br/>
+                <input className="form-control" type="text" id="name" name="name" required defaultValue={user.name}/><br/>
+                </div>
 
-            <label htmlFor="name">Full name:</label><br/>
-            <input type="text" id="name" name="name" required defaultValue={user.name}/><br/>
+                <div className="col">
+                <label htmlFor="email" >Email:</label><br/>
+                <input className="form-control" type="email" id="email" name="email" required defaultValue={user.email}/><br/>
+                </div>
 
-            <label htmlFor="email" >Email:</label><br/>
-            <input type="email" id="email" name="email" required defaultValue={user.email}/><br/>
+                <div className="col">
+                <label htmlFor="username">Username:</label><br/>
+                <input className="form-control" type="text" id="username" name="username" required defaultValue={user.username}/><br/>
+                </div>
 
-            <label htmlFor="username">Username:</label><br/>
-            <input type="text" id="username" name="username" required defaultValue={user.username}/><br/>
+                <div className="col">
+                <label htmlFor="password">password:</label><br/>
+                <input className="form-control" type="text" id="password" name="password" required  defaultValue={user.password}/>
+                </div>
+                
+                <div className="col">
+                <label htmlFor="role_id">Assign new role</label>
+                {isPending ? "loading" :
+                    <select id="role" name="role_id" className="form-select">
+                        {
+                            roles.map(({role_id,name}) => 
+                                <option key={role_id} value={role_id}> 
+                                    {name ? name :""} 
+                                </option>
+                            )
+                        }
+                    </select>                
+                } 
+                    </div>
+                <div className="col">
+                <button className="btn btn-primary mt-3" type="submit">Change</button>
+                </div>
 
-            <label htmlFor="password">password:</label><br/>
-            <input type="text" id="password" name="password" required  defaultValue={user.password}/>
-
-            <label htmlFor="role_id">Assign new role</label>
-            {isPending ? "loading" :
-                <select id="role" name="role_id" >
-                    {
-                        roles.map(({role_id,name}) => 
-                            <option key={role_id} value={role_id}> 
-                                {name ? name :""} 
-                            </option>
-                        )
-                    }
-                </select>                
-            }           
-            <button type="submit">Submit</button>
-        </form>
+                </div>
+            </form>
+        </div>
      )
 }
 
@@ -102,23 +121,27 @@ const UserRoles = () => {
     }
     return ( 
         <section>
-            <div>
-                <CreateUser />
-            </div>
-            user roles<br/>
+            <CreateUser />
+            <p className="fw-bold">User Details</p>
+            <p className="fw-bold">NB: You cant delete a user which has a task or assigned task or has a assigned a task</p>
+
+            <div className="p-3">
             {
                 isPending ? "loading" :
+                
                 users.map((user) =>
-                    <div key={user.user_id}>
-                        <div>
-                            <span>{user.name} </span>
-                            <span><GetRole id={user.role_id}/> </span>
-                            <GetRoleForm user={user}/>
-                            <span data_id={user.user_id} onClick={handleDelete}>Delete</span>
-                        </div>
-                    </div>                    
-                )            
+                <div key={user.user_id} className="bg-light p-1 m-3">
+
+                        <p><strong>Name: </strong>{user.name} </p>
+                        <p><strong>Role: </strong><GetRole id={user.role_id}/> </p>
+                        <p><button  data_id={user.user_id} onClick={handleDelete} className="btn btn-danger">Delete</button> </p>
+                        <GetRoleForm user={user}/>
+                        
+                </div>                    
+                ) 
+                           
             }
+            </div>
         </section>
      );
 }

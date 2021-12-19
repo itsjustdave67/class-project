@@ -31,21 +31,29 @@ const Permssions = () => {
         }
     }
     return ( 
-        <section>
+        <section className="p-3">
+            <p className="fw-bold">Permssions</p>
             {
                 isPending ? "loading" :
                 permissions.map(({permission_id,name}) =>
 
                     <div key={permission_id}>
                         <form onSubmit={handleSubmit} data_id={permission_id}>
+                        <div className="row bg-light">
+                            <div className="col">
                             <label htmlFor="name">Permission:</label><br/>
-                            <input type="text" id="name" name="name"  defaultValue={name}/><br/>
-                            
-                            <button type="submit">Submit</button>
+                            <input className="form-control" type="text" id="name" name="name"  defaultValue={name}/><br/>
+                            </div>
+                            <div className="col">
+
+                            <button className="btn btn-primary mt-3" type="submit">Change</button>
+                            </div>
+                            <div className="col">
+                            <button className="btn btn-danger mt-3" data_id={permission_id} onClick={handleDelete}>Delete</button>
+                            </div>
+                            </div>
                         </form>
                         <div>
-                            <span>{name} </span>
-                            <span data_id={permission_id} onClick={handleDelete}>Delete</span>
                         </div>
                     </div>
                     

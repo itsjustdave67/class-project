@@ -15,20 +15,30 @@ const RolesColumn = () => {
         }
     }
     return ( 
-        <section>
-            <p>nb: you cant delete role which is being used as a foreign key</p>
+        <section className="p-3">
+            <p className="fw-bold">NB: You cant delete role which is being is being used by a user or has a permmsision</p>
             {
                 isPending ? "loading" :
-                roles.map(({role_id,name}) =>
-                    <div key={role_id}>
-                        <div>
-                            <span>{name}</span>
-                            <span><Link to={`./roles/${role_id}`}> Edit </Link></span>
-                            <span data_id={role_id} onClick={handleDelete}>Delete</span>
-                        </div>
-                    </div>
-                    
-                )
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        roles.map(({role_id,name}) =>
+                        <tr key={role_id}>
+                            <td>{name}</td>
+                            <td><Link to={`./roles/${role_id}`} className="btn btn-success"> Edit </Link></td>
+                            <td><button data_id={role_id} onClick={handleDelete} className="btn btn-danger">Delete</button></td>
+                        </tr>
+                        
+                    )
+                    }
+                    </tbody>
+                </table>
+                
             
             }
         </section>

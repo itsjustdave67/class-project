@@ -19,12 +19,12 @@ const PermissionForm = () => {
     }
     return ( 
         <section>
-            <div>
+            <div className="p-4">
                 
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Permission:</label><br/>
-                    <input type="text" id="name" name="name" required/><br/>
-                    <button type="submit">Submit</button>
+                    <input className="form-control" type="text" id="name" name="name" required/><br/>
+                    <button className="btn btn-primary mt-3" type="submit">Add Permission</button>
                 </form>
             </div>
         </section>

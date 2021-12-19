@@ -20,12 +20,12 @@ const TasksForm = () => {
     return ( 
         <section>
             
-            <div>
+            <div className="p-4">
                 <form onSubmit={handleSubmit} title="form">
                     <label htmlFor="name">Task:</label><br/>
-                    <input type="text" title="name" id="name" name="name" required placeholder="add tasks"/><br/>
+                    <input className="form-control" type="text" title="name" id="name" name="name" required placeholder="add tasks"/><br/>
                     
-                    <button type="submit">Submit</button>
+                    <button className="btn btn-primary mt-3" type="submit">Submit Task</button>
                 </form>
             </div>
      

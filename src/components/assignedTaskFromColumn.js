@@ -15,20 +15,33 @@ const AssignedTasksFromColumn = () => {
         }
     }
     return ( 
-        <section>
-            <p>Tasks you have assigned others</p>
+        <section className="p-3">
+            <p>Tasks you've been assigned</p>
             {
                 isPending ? "loading" :
-                tasks.map(({assigned_task_id,name,to}) =>
-                    <div key={assigned_task_id}>
-                        <div>
-                            <span>{name} </span>
-                            <span><GetUser id={to}/> fd</span>
-                            <span data_id={assigned_task_id} onClick={handleDelete}>Delete</span>
-                        </div>
-                    </div>
+                <table className="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>From</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        tasks.map(({assigned_task_id,name,to}) =>
+                        <tr key={assigned_task_id}>
+                            <td>{name} </td>
+                            <td><GetUser id={to}/></td>
+                            
+                            <td ><button data_id={assigned_task_id} onClick={handleDelete} className="btn btn-danger">Delete</button></td>
+                               
+                        </tr>
                     
-                )
+                    )
+                    }
+                    </tbody>
+                </table>
+                
             
             }
      
