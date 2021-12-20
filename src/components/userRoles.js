@@ -1,28 +1,27 @@
 import useGet from "../hooks/useGet"
 import deleteRequest from "../scripts/shared/delete"
-import post from "../scripts/shared/post"
 import put from "../scripts/shared/put"
 import CreateUser from "./createUser"
 
-const RoleOptions = () => {
-    const {isPending, data:users} = useGet(`/users`)
+// const RoleOptions = () => {
+//     const {isPending, data:users} = useGet(`/users`)
 
-    return ( 
-        <select id="to" name="to" >
-            {
-                isPending ? "loading" :
-                users.map(({user_id,name}) =>
-                    <option key={user_id} value={user_id}> 
-                        {user_id} | {name} 
-                    </option>
+//     return ( 
+//         <select id="to" name="to" >
+//             {
+//                 isPending ? "loading" :
+//                 users.map(({user_id,name}) =>
+//                     <option key={user_id} value={user_id}> 
+//                         {user_id} | {name} 
+//                     </option>
                     
-                )
+//                 )
             
-            }
+//             }
             
-        </select>
-     );
-}
+//         </select>
+//      );
+// }
 
 const GetRole = ({id}) => {
     const {isPending, data:role} = useGet(`/roles/${id}`)

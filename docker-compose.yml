@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  front-end:
+    build: .
+    ports:
+      - 3000:3000
+ 
+    
+

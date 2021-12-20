@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 import post from "../scripts/shared/post"
 import UserOptions from "./userOptions"
 
